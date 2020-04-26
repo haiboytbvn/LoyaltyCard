@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="JsonDatabase\**" />
+    <Content Remove="JsonDatabase\**" />
+    <EmbeddedResource Remove="JsonDatabase\**" />
+    <None Remove="JsonDatabase\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LoyaltyCard.DataService\LoyaltyCard.DataService.csproj" />
+    <ProjectReference Include="..\LoyaltyCard.Data\LoyaltyCard.Data.csproj" />
+    <ProjectReference Include="..\LoyaltyCard.Logic\LoyaltyCard.Logic.csproj" />
+    <ProjectReference Include="..\LoyaltyCard.Common\LoyaltyCard.Common.csproj" />
+  </ItemGroup>
+
+
+</Project>

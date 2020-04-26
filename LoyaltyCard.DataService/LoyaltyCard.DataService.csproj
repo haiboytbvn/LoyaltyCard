@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LoyaltyCard.Common\LoyaltyCard.Common.csproj" />
+    <ProjectReference Include="..\LoyaltyCard.Data\LoyaltyCard.Data.csproj" />
+  </ItemGroup>
+
+</Project>
