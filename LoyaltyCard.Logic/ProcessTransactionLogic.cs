@@ -22,6 +22,7 @@ namespace LoyaltyCard.Logic
             foreach (var transaction in toProcessingTransactions)
             {
                 transaction.TransactionState = TransactionState.PROCESSING;
+                transaction.ModifiedOn = DateTime.UtcNow;
                 _transactionDA.UpdateRecord(transaction);
             }
         }
@@ -35,6 +36,7 @@ namespace LoyaltyCard.Logic
                 var totalSpent = cardID.Sum(x => (decimal)x.SpentAdjust);
                 loyaltyCard.LoyaltyCartTypeId = GetCartTypeByTotalSpent(totalSpent);
                 loyaltyCard.TotalSpent = totalSpent;
+                loyaltyCard.ModifiedOn = DateTime.UtcNow;
                 _loyaltyCardDataAccess.UpdateRecord(loyaltyCard);
 
                 Task.Run(() => UpdateDoneTransactionProcess(cardID));
@@ -66,6 +68,7 @@ namespace LoyaltyCard.Logic
             foreach (var transaction in listDoneTransaction)
             {
                 transaction.TransactionState = TransactionState.DONE;
+                transaction.ModifiedOn = DateTime.UtcNow;
                 _transactionDA.UpdateRecord(transaction);
             }
         }

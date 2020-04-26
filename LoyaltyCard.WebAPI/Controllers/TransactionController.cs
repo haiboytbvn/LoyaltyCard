@@ -24,6 +24,9 @@ namespace LoyaltyCard.WebAPI.Controllers
         public IActionResult Post([FromBody] TransactionModel dataViewModel)
         {
             var model = dataViewModel;
+            model.ID = DateTime.UtcNow.Ticks.ToString();
+            model.CreatedOn = DateTime.UtcNow;
+            model.ModifiedOn = DateTime.UtcNow;
             model.TransactionState = TransactionState.PROCESSING;
 
             var transactionDA = new TransactionDataAccess();
